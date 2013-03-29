@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<table class="table">
+    <tbody>
+    {{x = 0}}
+    {{for f in files:}}
+        {{x += 1}}
+    <tr>
+        <td>{{=f}}</td>
+        <td>{{=A("Import", _class="btn btn-warning", callback=URL('import_file', vars=dict(filename=f)), target="f_%s" % x)}}</td>
+        <td id="{{='f_%s' % x}}"></td>
+    </tr>
+    {{pass}}
+    </tbody>
+</table>
+
+{{=form}}
+
